@@ -11,6 +11,7 @@ namespace QuickBuy.Dominio.Entidades
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
         public int UsuarioId { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public DateTime DataPrevisaoEntreaga { get; set; }
         public string Cep { get; set; }
         public string Estado { get; set; }
@@ -18,11 +19,8 @@ namespace QuickBuy.Dominio.Entidades
         public string EnderecoCompleto { get; set; }
         public int NumeroEndereco { get; set; }
         public int FormaPagamentoId { get; set; }
-
-        public FormaPagamento FormaPagamento { get; set; }
-
-        public ICollection<ItemPedido> ItensPedido { get; set; }
-
+        public virtual FormaPagamento FormaPagamento { get; set; }
+        public virtual ICollection<Pedido> ItensPedido { get; set; }
         public override void Validate()
         {
             LimparMensagemValidacao();
